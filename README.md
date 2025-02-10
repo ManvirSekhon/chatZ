@@ -1,2 +1,2 @@
 # chatZ
-A private chatroom which works real-time
+A private chatroom which works real
