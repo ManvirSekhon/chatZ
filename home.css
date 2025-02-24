@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+#chatBtn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btns{
+    background-color: #8C52FF;
+    color: white;
+    height: 4rem;
+}
+
+#createBtn{
+    width: 10rem;
+}

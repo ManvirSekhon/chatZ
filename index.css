@@ -1,31 +1,4 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    
-}
-body {
-    background: radial-gradient(at center, #5400a8, #0e0127,#000000);
-    background-size: 500% 500%;
-    animation: gradient 6s ease infinite;
 
- }
-
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
 
 .container {
     display: flex;
