@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+body {
+    background: radial-gradient(at center, #5400a8, #0e0127,#000000);
+    background-size: 500% 500%;
+    animation: gradient 6s ease infinite;
+
+ }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+.container {
+    display: flex;
+    position: fixed;
+    right:0%;
+    top: 0%;
+    bottom: 0%;
+    align-items:center;
+    background-color: #66666617;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 15px 25px rgb(0, 0, 0);
+}
+
+.login-box {
+    background: #4f4f4f13;
+    width: 320px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0,0,0,4);
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    cursor:default;
+}
+
+.user-box {
+    position: relative;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.user-box label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+
+.login-box form #login {
+    margin: 0 auto;
+    display: flex;
+    height: 20px;
+    color: #ffffff;
+    font-size: 16px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 1s;
+    margin-top: 1px;
+    margin-bottom: 12px;
+    letter-spacing: 4px;
+    background-color: transparent;
+    border: none;
+
+}
+
+.login-box form a:hover {
+    color: #ffffff;
+    transition: 5ms;
+    cursor:pointer;
+}
+.F{
+    display: flex;
+    text-decoration: none;
+    color: #fefefe;
+    justify-content: center;
+
+}
