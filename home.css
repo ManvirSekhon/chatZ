@@ -9,13 +9,13 @@
 }
 
 .btns{
-    background-color: #8C52FF;
-    color: white;
+    background-color: #b5b5b51a;
+    color: rgb(0, 0, 0);
     height: 4rem;
     font-weight: 600;
     font-size: 1.25rem;
     border-radius: 1.5rem;
-    border: none;
+    border: 2px solid rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@
 
 .btns:hover{
     cursor: pointer;
-    background-color: #6638c2;
+    background-color: #707070;
 }
 
 #create-icon{
