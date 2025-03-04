@@ -24,7 +24,7 @@
 .login-box h2 {
     margin: 0 0 30px;
     padding: 0;
-    color: #fff;
+    color: #000000;
     text-align: center;
     cursor:default;
 }
@@ -37,10 +37,10 @@
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: #000000;
     margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #000000;
     outline: none;
     background: transparent;
 }
@@ -51,16 +51,16 @@
     top: 0;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: #000000;
     pointer-events: none;
-    transition: 0.5s;
+    transition: .25s;
 }
 
 .user-box input:focus ~ label,
 .user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #ffffff;
+    color: #000000;
     font-size: 12px;
 }
 
@@ -69,7 +69,7 @@
     margin: 0 auto;
     display: flex;
     height: 20px;
-    color: #ffffff;
+    color: #000000;
     font-size: 16px;
     text-transform: uppercase;
     overflow: hidden;
@@ -83,14 +83,14 @@
 }
 
 .login-box form a:hover {
-    color: #ffffff;
+    color: #000000;
     transition: 5ms;
     cursor:pointer;
 }
 .F{
     display: flex;
     text-decoration: none;
-    color: #fefefe;
+    color: #000000;
     justify-content: center;
 
 }

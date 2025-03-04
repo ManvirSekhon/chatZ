@@ -9,7 +9,7 @@ body {
     
 }
 body {
-    background: radial-gradient(at center, #320063, #0e0127,#000000);
+    background: radial-gradient(at center, #ffffff, #b1b1b1,#ffffff);
     background-size: 500% 500%;
     animation: gradient 6s ease infinite;
 
