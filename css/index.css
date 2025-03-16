@@ -58,16 +58,16 @@
 #login-box form #login {
     margin: 0 auto;
     display: flex;
-    height: 20px;
+    height: 25px;
     color: #000000;
-    font-size: 16px;
+    font-size: 25px;
     text-transform: uppercase;
     margin-top: 1px;
-    margin-bottom: 12px;
+    margin-bottom: 40px;
     letter-spacing: 4px;
     background-color: transparent;
     border: none;
-    margin-top: 100px;
+    margin-top: 80px;
     cursor: pointer;
 
 }
@@ -75,7 +75,12 @@
 #login-box form a:hover {
     cursor:pointer;
 }
-.F{
+#F{
+    text-decoration: none;
+    color: #000000;
+}
+.fs-container {
+
     display: flex;
     text-decoration: none;
     color: #000000;
@@ -98,7 +103,9 @@
     cursor: pointer;
 } 
 #fs{
-    display: flex;
+    display: inline;
+    align-items: center;
+    justify-content: center;
 }
 #signup-box{
     background: #4f4f4f13;
@@ -111,9 +118,9 @@
 #signup{
 margin: 0 auto;
 display: flex;
-height: 20px;
+height: 25px;
 color: #000000;
-font-size: 16px;
+font-size: 25px;
 text-transform: uppercase;
 margin-top: 1px;
 margin-bottom: 12px;
@@ -121,4 +128,12 @@ letter-spacing: 4px;
 background-color: transparent;
 border: none;
 margin-top: 100px;
-cursor: pointer;}
+cursor: pointer;
+}
+#signup-page{
+    display: flex;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
