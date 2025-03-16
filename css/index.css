@@ -1,6 +1,6 @@
 
 
-.login-box {
+#login-box{
     background: #4f4f4f13;
     width: 320px;
     height: 350px;
@@ -9,7 +9,7 @@
     box-shadow: 0 15px 25px rgba(0,0,0,4);
 }
 
-.login-box h2 {
+ h2 {
     margin: 0 0 30px;
     padding: 0;
     font-size: 30px;
@@ -55,7 +55,7 @@
 }
 
 
-.login-box form #login {
+#login-box form #login {
     margin: 0 auto;
     display: flex;
     height: 20px;
@@ -72,9 +72,7 @@
 
 }
 
-.login-box form a:hover {
-    color: #000000;
-    transition: 5ms;
+#login-box form a:hover {
     cursor:pointer;
 }
 .F{
@@ -83,4 +81,44 @@
     color: #000000;
     justify-content: center;
 
+
 }
+#signup-box {
+            display: none; 
+
+}
+#signup{
+    display: flex;
+    color: #000000;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+} 
+#fs{
+    display: flex;
+}
+#signup-box{
+    background: #4f4f4f13;
+    width: 320px;
+    height: 350px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0,0,0,4);
+}
+#signup{
+margin: 0 auto;
+display: flex;
+height: 20px;
+color: #000000;
+font-size: 16px;
+text-transform: uppercase;
+margin-top: 1px;
+margin-bottom: 12px;
+letter-spacing: 4px;
+background-color: transparent;
+border: none;
+margin-top: 100px;
+cursor: pointer;}
