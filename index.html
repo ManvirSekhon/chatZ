@@ -2,16 +2,34 @@
 <html>
 <head>
     <title>Login Page</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="index.css">    
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/index.css">    
     <link rel="shortcut icon"  href="./Assets/favicon.ico">
+    <style>
+        .signup-box {
+            display: none; /* Initially hide the signup box */
+        }
+    </style>
+    <script>
+        function toggleForms() {
+            var loginBox = document.querySelector('#login-box');
+            var signupBox = document.querySelector('#signup-box');
+            if (loginBox.style.display === "none") {
+                loginBox.style.display = "block";
+                signupBox.style.display = "none";
+            } else {
+                loginBox.style.display = "none";
+                signupBox.style.display = "block";
+            }
+        }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <div class="login-box">
+    <div id="container">
+        <div id="login-box" class="form">
             <h2>Login</h2>
-            <form method="get" action="./home.html">
-                <div class="user-box"> 
+            <form method="get" action="./html/home.html">
+                <div class="user-box">
                     <input type="text" name="Mail" required>
                     <label>Email/Username</label>
                 </div>
@@ -20,9 +38,26 @@
                     <label>Password</label>
                 </div>
                 <input id="login" type="submit" value="Login">
-              
             </form>
-            <a class="F" href="#">Forgot Password?</a>
+                <div class="fs-container">
+                    <a id="F" href="#">Forgot Password?</a>
+                    <input type="submit" value="Signup" id="signup-page" onclick="toggleForms()">
+                </div>
+
+        </div>
+        <div id="signup-box" class="form">
+            <h2>Signup</h2>
+            <form method="get" action="./html/home.html">
+                <div class="user-box">
+                    <input type="text" name="Mail" required>
+                    <label>Email/Username</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" name="Password" required>
+                    <label>Password</label>
+                </div>
+                <input id="signup" type="submit" value="Signup">
+            </form>
         </div>
     </div>
 </body>
