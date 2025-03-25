@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="utils.css">
     <link rel="stylesheet" href="home.css">
-    <link rel="shortcut icon"  href="./Assets/favicon.ico">
+    <link rel="shortcut icon" href="./Assets/favicon.ico">
 </head>
+
 <body>
     <div id="root">
         <div id="chatBtn">
             <button id="createBtn" class="btns"><i id="create-icon" class="fa-regular fa-square-plus"></i>CREATE</button>
-            <button id="joinBtn" class="btns">Join</button>
+            <button id="joinBtn" class="btns"><i class="fa-solid fa-arrow-right-to-bracket"></i>Join</button>
         </div>
-        
+
+        <div id="createForm">
+            <div id="create-head">
+                <h3>Create ChatGroup</h3>
+            </div>
+            <!-- <form action="#" method="get" id="creation">
+                <div id="nameDiv" class="pointer">
+                    <label for="chatName">ChatName</label>
+                    <input type="text" name="chatName" id="chatName" required>
+                </div>
+                <div id="passDiv" class="pointer">
+                    <label for="chatPass">ChatPassKey</label>
+                    <input type="text" name="chatPass" id="chatPass" required>
+                </div>
+
+                <button id="createBtn">Create</button>
+            </form> -->
+            <form method="get" action="#" id="creation">
+                <div class="user-box"> 
+                    <input type="text" id="chatName" name="chatName" required>
+                    <label>Email/Username</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" name="chatPass" required>
+                    <label>Password</label>
+                </div>
+                <input id="createBtn" type="submit" value="Create">
+              
+            </form>
+        </div>
     </div>
+
+    <script>
+       
+    </script>
 </body>
+
 </html>
-
-

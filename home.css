@@ -25,8 +25,6 @@
     background-color: #bbc4e6;
 }
 
-
-
 #create-icon{
     font-size: 1.5rem;
 }
@@ -47,9 +45,6 @@ button#createBtn{
 
 button#joinBtn{
     width: 8rem;
-    /* background-color: black; 
-    border: black;
-    color: white;  */
 }
 
 .btns:active{
@@ -64,3 +59,192 @@ button#createBtn:active{
     width: 17.5rem;
 }
 
+/* forms */
+/* 
+#createForm{
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 30rem;
+    min-height: 20rem;
+    gap: 1.5rem;
+}
+
+#create-head{
+    font-size: 1.5rem;
+}
+
+#creation{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#nameDiv{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+
+#nameDiv label{
+    position: absolute;
+    transition: 0.25s;
+}
+
+#chatName{
+    border: none;
+    border-bottom:2px solid black;
+    background-color: transparent;
+    padding-top: 0.5rem;
+    font-size: 1rem;
+}
+
+#nameDiv label:focus~label{
+    top: -20px;
+    border: none;
+}
+
+#passDiv{
+    display: flex;
+    font-size: 1.2rem;
+    flex-direction: column;
+}
+
+#chatPass{
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid black;
+    padding-top: 0.5rem;
+    font-size: 1rem;
+}
+
+#passDiv label{
+    font-size: 1.2rem;
+    flex-direction: column;
+}
+
+#chatPass{
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid black;
+    padding-top: 0.5rem;
+}
+
+#passDiv label{
+    position: absolute;
+    transition: 0.25s;
+}
+
+
+#nameDiv:focus-within label {
+    top: 368px;
+    left: 410px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 500;
+}
+ 
+
+#passDiv:focus-within label {
+    top: 426px;
+    left: 410px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 500;
+}
+ 
+#passDiv input:focus,
+#nameDiv input:focus {
+    outline: none; 
+} */
+
+.login-box {
+    background: #4f4f4f13;
+    width: 320px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0,0,0,4);
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #000000;
+    text-align: center;
+    cursor:default;
+}
+
+.user-box {
+    position: relative;
+}
+
+.user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    background: transparent;
+}
+
+.user-box label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000000;
+    pointer-events: none;
+    transition: .25s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #000000;
+    font-size: 12px;
+}
+
+
+.login-box form #login {
+    margin: 0 auto;
+    display: flex;
+    height: 20px;
+    color: #000000;
+    font-size: 16px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 1s;
+    margin-top: 1px;
+    margin-bottom: 12px;
+    letter-spacing: 4px;
+    background-color: transparent;
+    border: none;
+
+}
+
+.login-box form a:hover {
+    color: #000000;
+    transition: 5ms;
+    cursor:pointer;
+}
+.F{
+    display: flex;
+    text-decoration: none;
+    color: #000000;
+    justify-content: center;
+
+}
+
+input #createBtn{
+    height: 3rem;
+    background-color: transparent;
+    width: 8rem;
+    border: none;
+    font-size: 1.1rem;      
+}
