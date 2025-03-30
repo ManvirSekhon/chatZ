@@ -5,24 +5,6 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/index.css">    
     <link rel="shortcut icon"  href="./Assets/favicon.ico">
-    <style>
-        .signup-box {
-            display: none; /* Initially hide the signup box */
-        }
-    </style>
-    <script>
-        function toggleForms() {
-            var loginBox = document.querySelector('#login-box');
-            var signupBox = document.querySelector('#signup-box');
-            if (loginBox.style.display === "none") {
-                loginBox.style.display = "block";
-                signupBox.style.display = "none";
-            } else {
-                loginBox.style.display = "none";
-                signupBox.style.display = "block";
-            }
-        }
-    </script>
 </head>
 <body>
     <div id="container">
@@ -41,24 +23,16 @@
             </form>
                 <div class="fs-container">
                     <a id="F" href="#">Forgot Password?</a>
-                    <input type="submit" value="Signup" id="signup-page" onclick="toggleForms()">
+                    <a id="signup-page" href="/html/signup.html">Signup</a>
+
                 </div>
 
-        </div>
-        <div id="signup-box" class="form">
-            <h2>Signup</h2>
-            <form method="get" action="./html/home.html">
-                <div class="user-box">
-                    <input type="text" name="Mail" required>
-                    <label>Email/Username</label>
-                </div>
-                <div class="user-box">
-                    <input type="password" name="Password" required>
-                    <label>Password</label>
-                </div>
-                <input id="signup" type="submit" value="Signup">
-            </form>
-        </div>
     </div>
+</div>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js"></script>
+    <script type="module" src="./js/auth.js" defer></script>
+    <script type="module" src="./js/signup.js"></script>
+
 </body>
 </html>
