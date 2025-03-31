@@ -5,25 +5,27 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/index.css">    
     <link rel="shortcut icon"  href="/Assets/favicon.ico">
+    <link rel="stylesheet" href="/css/register.css">
+    <script type="module" src="/js/firebaseauth.js"></script>
 </head>
 <body>
     <div id="container">
         <div id="signup-box" class="form">
-            <h2>Signup</h2>
+            <h2>Register Form</h2>
             <form method="get" action="#">
                 <div class="user-box">
                     <input id="username" type="text" name="Username" required>
                     <label>Username</label>
                 </div>
                 <div class="user-box">
-                    <input id="Email" type="email" name="Mail" required>
+                    <input id="rEmail" type="email" name="Mail" required>
                     <label>Email</label>
                 </div>
                 <div class="user-box">
-                    <input id="password" type="password" name="Password" required>
+                    <input id="rPassword" type="password" name="Password" required>
                     <label>Password</label>
                 </div>
-                <input id="signup" type="submit" value="Signup">
+                <input id="signup" type="submit" value="Register">
             </form>
         </div>
     </div>
