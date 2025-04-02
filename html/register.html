@@ -11,7 +11,7 @@
     <div id="container">
         <div id="signup-box" class="form">
             <h2>Register Form</h2>
-            <form method="get" action="#">
+            <form method="get">
                 <div class="user-box">
                     <input id="username" type="text" name="Username" required>
                     <label>Username</label>
@@ -21,12 +21,14 @@
                     <label>Email</label>
                 </div>
                 <div class="user-box">
-                    <input id="rPassword" type="password" name="Password" required>
+                    <input id="rPassword"  type="password" name="Password" required>
                     <label>Password</label>
                 </div>
                 <input id="signup" type="submit" value="Register">
             </form>
         </div>
     </div>
+
+    <script type="module" src="../firebase/register.js"></script>
 </body>
 </html>

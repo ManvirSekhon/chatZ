@@ -12,11 +12,11 @@
             <h2>Login</h2>
             <form method="get" action="./html/home.html">
                 <div class="user-box">
-                    <input type="text" name="Mail" required>
+                    <input type="text" id="email" name="Mail" required>
                     <label>Email/Username</label>
                 </div>
                 <div class="user-box">
-                    <input type="password" name="Password" required>
+                    <input type="password" id="password" name="Password" required>
                     <label>Password</label>
                 </div>
                 <input id="login" type="submit" value="Login">
@@ -29,6 +29,6 @@
 
     </div>
 </div>
-
+    <script type="module" src="./firebase/index.js"></script>
 </body>
 </html>
