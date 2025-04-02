@@ -1,9 +1,8 @@
 
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-analytics.js";
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,} from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
-  import { getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
+  import { getFirestore, setDoc, doc, collection, addDoc} from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
   // https://firebase.google.com/docs/web/setup#available-libraries
 
   // Your web app's Firebase configuration
@@ -20,29 +19,35 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  const auth=getAuth(app);
+  const db=getFirestore(app);
 
   //submit button
   const submit = document.getElementById('signup');
-submit.addEventListener('click', (event) => {
-  event.preventDefault();
-  console.log(5)
+  submit.addEventListener('click', (event) => {
+    event.preventDefault();
+    console.log(5)
 
-  //getting email and password
-  const email = document.getElementById('rEmail').value;
-  const password = document.getElementById('rPassword').value;
-  const userName = document.getElementById('username').value;
+    //getting email and password
+    const email = document.getElementById('rEmail').value;
+    const password = document.getElementById('rPassword').value;
+    const userName = document.getElementById('username').value;
 
-  const auth=getAuth();
-  const bd=getFirestore();
 
-  createUserWithEmailAndPassword(auth,email,password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    const userData={
-      email: email,
-      userName: userName
-    };
+
+    createUserWithEmailAndPassword(auth,email,password)
+      .then(async (userCredential) => {
+        const user = userCredential.user;
+        const userData={
+          email: email,
+          userName: userCredential.user.email,
+          createdAt: new Date()
+        };
+        console.log("created");
+        await setDoc(doc(db, "users", userCredential.user.uid));
+        alert("stored");
 
 })
+console.log("exit")
+
 })  

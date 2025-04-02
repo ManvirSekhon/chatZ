@@ -1,4 +1,3 @@
-
 <html lang="en">
 
 <head>
@@ -7,7 +6,6 @@
     <title>home</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <!-- <link rel="stylesheet" href="utils.css"> -->
     <link rel="stylesheet" href="../css/home.css">
     <link rel="shortcut icon" href="../Assets/favicon.ico">
 </head>
@@ -15,44 +13,40 @@
 <body>
     <div id="root">
         <div id="chatBtn">
-            <button id="createBtn" class="btns"><i id="create-icon" class="fa-regular fa-square-plus"></i>CREATE</button>
+            <button id="toggleCreateBtn" class="btns"><i id="create-icon" class="fa-regular fa-square-plus"></i>CREATE</button>
             <button id="joinBtn" class="btns"><i class="fa-solid fa-arrow-right-to-bracket"></i>Join</button>
         </div>
 
-        <div id="createForm">
+        <div id="createForm" style="display: none;">
+            <button id="cross"><i class="fa-solid fa-xmark"></i></button>
             <div id="create-head">
-                <h3>Create ChatGroup</h3>
+                <h3 class="text">Create ChatGroup</h3>
             </div>
-            <!-- <form action="#" method="get" id="creation">
-                <div id="nameDiv" class="pointer">
-                    <label for="chatName">ChatName</label>
-                    <input type="text" name="chatName" id="chatName" required>
-                </div>
-                <div id="passDiv" class="pointer">
-                    <label for="chatPass">ChatPassKey</label>
-                    <input type="text" name="chatPass" id="chatPass" required>
-                </div>
-
-                <button id="createBtn">Create</button>
-            </form> -->
             <form method="get" action="#" id="creation">
                 <div class="user-box"> 
                     <input type="text" id="chatName" name="chatName" required>
-                    <label>Email/Username</label>
+                    <label>Group Name</label>
                 </div>
                 <div class="user-box">
                     <input type="password" name="chatPass" required>
                     <label>Password</label>
                 </div>
-                <input id="createBtn" type="submit" value="Create">
-              
+                <button id="button-17" role="button">Create</button>
+               
             </form>
         </div>
-    </div>
-
-    <script>
        
+    </div>
+    <script>
+        document.getElementById('toggleCreateBtn').addEventListener('click', function() {
+            document.getElementById('chatBtn').style.display = 'none';
+            document.getElementById('createForm').style.display = 'block';
+        });
+    
+        document.getElementById('cross').addEventListener('click', function() {
+            document.getElementById('createForm').style.display = 'none';
+            document.getElementById('chatBtn').style.display = 'flex';
+        });
     </script>
 </body>
-
 </html>
