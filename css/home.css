@@ -236,8 +236,8 @@ button#createBtn:active{
  }
  #profile{
     border: 3px solid #000000;
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
     border-radius:50% ;
     top: 10px;
     left: 10px;
