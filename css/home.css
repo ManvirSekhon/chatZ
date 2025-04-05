@@ -14,8 +14,7 @@
 }
 
 .btns{
-    background-color: #fff;
-    color: black;
+    color: #4b4a4a;
     height: 4rem;
     font-weight: 600;
     font-size: 1.25rem;
@@ -25,9 +24,9 @@
     justify-content: center;
     align-items: center;
     gap: 0.2rem;
-    border: 4px solid #A9B5DF;
+    border: 4px solid #787878;
     width: 17rem;
-    background-color: #bbc4e6;
+    background-color: #ababab00;
 }
 
 #create-icon{
@@ -36,8 +35,8 @@
 
 .btns:hover{
     cursor: pointer;
-    background-color: #A9B5DF;
-    color: #fff;
+    background-color: #0051ff;
+    color: #ffffff;
 }
 
 #create-icon{
@@ -208,7 +207,9 @@ button#createBtn:active{
     color: #2f2f2f;
   }
   #logout:hover{
-    background-color: #e9ebef;
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
   }
   #button-17:focus{
     height: 40px;
@@ -222,22 +223,22 @@ button#createBtn:active{
     align-items: center;
     background-color: #00000000;
     border-radius: 25px;
-    border-style: none;
+    border:3px solid #949494;
     box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
     box-sizing: border-box;
-    color: #000000;
+    color: #5c5c5c;
     cursor: pointer;
     margin-left: 37%;
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 16px;
     height: 48px;
-    padding: 2px 24px;
+    padding: 2px 20px;
     
  }
  #profile{
     border: 3px solid #000000;
-    height: 60px;
-    width: 60px;
+    height: 55px;
+    width: 55px;
     border-radius:50% ;
     top: 10px;
     left: 10px;
@@ -246,3 +247,11 @@ button#createBtn:active{
     justify-content: center;
     position: absolute;
  }
+ #image{
+    width: 15%;
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    filter: drop-shadow(3px 3px 5px rgb(47, 46, 46));
+
+}

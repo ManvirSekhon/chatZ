@@ -70,3 +70,11 @@ i{
 .file{
   display: none;
 }
+#image{
+  width: 15%;
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  filter: drop-shadow(3px 3px 5px rgb(47, 46, 46));
+
+}
