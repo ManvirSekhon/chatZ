@@ -10,10 +10,10 @@ import {auth} from "./firebase.js";
 // Main logic
 
 if(localStorage.getItem("uid") != null) {
-    window.location.href = "../html/home.html";
+    window.location.href = "groups.html";
 }
 else {
-    document.getElementById("login").addEventListener("click", (e) => {
+    document.getElementById("loginBtn").addEventListener("click", (e) => {
         e.preventDefault();
         login();
     })
@@ -29,7 +29,7 @@ else {
         .then( (userCredential) => {
             console.log(userCredential.user.email);
             localStorage.setItem("uid", userCredential.user.uid);
-            window.location.href = "../html/home.html";
+            window.location.href = "groups.html";
         })
         .catch((error) => {alert(error.message)});
     }

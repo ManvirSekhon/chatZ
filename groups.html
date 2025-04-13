@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatZ - Group Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+  <div class="app-container">
+    <div class="page groups-page">
+      <header class="page-header">
+        <h2 class="header-title">ChatZ</h2>
+        
+        <button class="icon-btn logout-btn" id="groupsLogoutBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span></span>
+        </button>
+      </header>
+      
+      <div class="groups-container">
+        <div class="glass-card main-card fade-in">
+          <div class="card-content" id="groupsOptions">
+            <h2>Welcome to Group Hub</h2>
+            <p>Create a new chat group or join an existing one</p>
+            
+            <div class="button-group">
+              <button class="primary-btn pulse-btn" id="createGroupBtn">
+                <i class="fa-light fa-user-group"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Create Group</span>
+              </button>
+              
+              <button class="secondary-btn pulse-btn" id="joinGroupBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Join Group</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="card-content hidden" id="createGroupForm">
+            <button class="back-btn" data-target="groupsOptions">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Back
+            </button>
+            
+            <h2>Create New Group</h2>
+            <p>Set up a new chat group for your friends</p>
+            
+            <form class="group-form">
+              <div class="input-group">
+                <label>Group Name</label>
+                <input type="text" placeholder="Enter a unique group name" required>
+                <div class="input-focus"></div>
+              </div>
+              
+              <div class="input-group">
+                <label>Group Password</label>
+                <input type="password" placeholder="Create a secure password" required>
+                <div class="input-focus"></div>
+              </div>
+              
+              <button type="button" class="primary-btn" id="createGroupSubmitBtn">
+                <span>Create Group</span>
+              </button>
+            </form>
+          </div>
+          
+          <div class="card-content hidden" id="joinGroupForm">
+            <button class="back-btn" data-target="groupsOptions">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Back
+            </button>
+            
+            <h2>Join a Group</h2>
+            <p>Enter group details to join the conversation</p>
+            
+            <form class="group-form">
+              <div class="input-group">
+                <label>Group Name</label>
+                <input type="text" placeholder="Enter the group name" required>
+                <div class="input-focus"></div>
+              </div>
+              
+              <div class="input-group">
+                <label>Group Password</label>
+                <input type="password" placeholder="Enter the group password" required>
+                <div class="input-focus"></div>
+              </div>
+              
+              <button type="button" class="primary-btn" id="joinGroupSubmitBtn">
+                <span>Join Group</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="decoration-circle circle-1"></div>
+      <div class="decoration-circle circle-4"></div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+  <script type="module" src="./firebase/home.js"></script>
+</body>
+</html>

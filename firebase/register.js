@@ -22,10 +22,10 @@ import {db} from "./firebase.js";
 
 
 if(localStorage.getItem("uid") != null) {
-    window.location.href = "../html/home.html";
+    window.location.href = "group.html";
 }
 else{
-    document.getElementById("signup").addEventListener("click", (e) => {
+    document.getElementById("registerBtn").addEventListener("click", (e) => {
         e.preventDefault();
         signup();
     })
@@ -46,7 +46,7 @@ else{
             })
         })
         .then( () => {
-            window.location.href = "../html/home.html";
+            window.location.href = "groups.html";
         })
         .catch( (e) => {alert(e.message)});
     }

@@ -1,35 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login Page</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/index.css">    
-    <link rel="shortcut icon"  href="./Assets/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatZ - Login/Register</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
 </head>
 <body>
-    <img id="image" src="./Assets/chatZlogo.png" alt="">
-    <div id="container">
-        <div id="login-box" class="form">
-            <h2>Login</h2>
-            <form method="get" action="./html/home.html">
-                <div class="user-box">
-                    <input type="text" id="email" name="Mail" required>
-                    <label>Email/Username</label>
-                </div>
-                <div class="user-box">
-                    <input type="password" id="password" name="Password" required>
-                    <label>Password</label>
-                </div>
-                <input id="login" type="submit" value="Login">
-            </form>
-                <div class="fs-container">
-                    <a id="F" href="#">Forgot Password?</a>
-                    <a id="signup-page" href="/html/register.html">Signup</a>
-
-                </div>
-
+  <div class="app-container">
+    <div class="page auth-page">
+      <div class="glass-card fade-in">
+        <div class="auth-header">
+          <h1 class="text-gradient">ChatZ</h1>
+          <p>Join the conversation. Connect with everyone.</p>
+        </div>
+        
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="login">Login</button>
+          <button class="tab-btn" data-tab="register">Register</button>
+          <div class="tab-indicator"></div>
+        </div>
+        
+        <div class="tab-content active" id="login">
+          <form class="auth-form">
+            <div class="input-group">
+              <input type="text" placeholder="Username" id="email" required>
+              <div class="input-focus"></div>
+            </div>
+            <div class="input-group">
+              <input type="password" placeholder="Password" id="password" required>
+              <div class="input-focus"></div>
+            </div>
+            <button type="button" class="primary-btn" id="loginBtn">
+              <span>Login</span>
+              <div class="btn-glow"></div>
+            </button>
+          </form>
+        </div>
+        
+        <div class="tab-content" id="register">
+          <form class="auth-form">
+            <div class="input-group">
+              <input type="text" placeholder="Username" id="username" required>
+              <div class="input-focus"></div>
+            </div>
+            <div class="input-group">
+              <input type="email" placeholder="Email" id="rEmail" required>
+              <div class="input-focus"></div>
+            </div>
+            <div class="input-group">
+              <input type="password" placeholder="Password" id="rPassword" required>
+              <div class="input-focus"></div>
+            </div>
+            
+            <button type="button" class="primary-btn" id="registerBtn">
+              <span>Register</span>
+              <div class="btn-glow"></div>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="decoration-circle circle-1"></div>
+      <div class="decoration-circle circle-2"></div>
+      <div class="decoration-circle circle-3"></div>
     </div>
-</div>
-    <script type="module" src="./firebase/index.js"></script>
+  </div>
+  
+  <script src="script.js"></script>
+  <script type="module" src="./firebase/index.js"></script>
+  <script type="module" src="./firebase/register.js"></script>
 </body>
 </html>
