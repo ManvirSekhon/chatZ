@@ -1,14 +1,14 @@
 // Optimized and cleaned version of script.js
 const initChatApp = () => {
   // DOM Elements
-  const loginBtn = document.getElementById('loginBtn');
-  const registerBtn = document.getElementById('registerBtn');
+  // const loginBtn = document.getElementById('loginBtn');
+  // const registerBtn = document.getElementById('registerBtn');
   const createGroupBtn = document.getElementById('createGroupBtn');
   const joinGroupBtn = document.getElementById('joinGroupBtn');
   const createGroupSubmitBtn = document.getElementById('createGroupSubmitBtn');
   const joinGroupSubmitBtn = document.getElementById('joinGroupSubmitBtn');
-  const groupsLogoutBtn = document.getElementById('groupsLogoutBtn');
-  const chatLogoutBtn = document.getElementById('chatLogoutBtn');
+  // const groupsLogoutBtn = document.getElementById('groupsLogoutBtn');
+  // const chatLogoutBtn = document.getElementById('chatLogoutBtn');
   const leaveGroupBtn = document.getElementById('leaveGroupBtn');
 
   const openSidebarBtn = document.getElementById('openSidebar');
