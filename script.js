@@ -52,8 +52,8 @@ const initChatApp = () => {
 
     // // Navigation handlers
     // if (registerBtn) registerBtn.addEventListener('click', () => navigateTo('groups.html'));
-    if (createGroupSubmitBtn) createGroupSubmitBtn.addEventListener('click', () => navigateTo('chat.html'));
-    if (joinGroupSubmitBtn) joinGroupSubmitBtn.addEventListener('click', () => navigateTo('chat.html'));
+    if (createGroupSubmitBtn) createGroupSubmitBtn.addEventListener('click', () => navigateTo('chatting.html'));
+    if (joinGroupSubmitBtn) joinGroupSubmitBtn.addEventListener('click', () => navigateTo('chatting.html'));
     // if (groupsLogoutBtn) groupsLogoutBtn.addEventListener('click', () => navigateTo('auth.html'));
     // if (chatLogoutBtn) chatLogoutBtn.addEventListener('click', () => navigateTo('auth.html'));
     if (leaveGroupBtn) leaveGroupBtn.addEventListener('click', () => navigateTo('groups.html'));
