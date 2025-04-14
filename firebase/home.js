@@ -38,14 +38,6 @@ else {
 
 
 
-
-
-
-
-
-
-
-
     // functions
     
     function logout() {
