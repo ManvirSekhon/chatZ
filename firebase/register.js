@@ -38,7 +38,8 @@ else{
         createUserWithEmailAndPassword(auth, email, pass)
         .then( (userCredential) => {
             console.log(userCredential.user.email);
-            localStorage.setItem("uid", userCredential.user.uid)
+            localStorage.setItem("uid", userCredential.user.uid);
+            localStorage.setItem("username", user);
             return setDoc(doc(db, "users", userCredential.user.uid), {
                 username: user,
                 email: userCredential.user.email,
