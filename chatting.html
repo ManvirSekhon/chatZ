@@ -1,22 +1,27 @@
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
-  <link rel="stylesheet" href="styles.css">
-  <link rel="shortcut icon" href="./Assets/favicon.ico">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-</head>
+    <script defer type="module" src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="./Assets/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+      body {
+        display: none;
+      }
+    </style>
+  </head>
 <body>
-    <div class="container">
+  <div class="container">
         <div class="sidebar" id="sidebar">
-         
-           
-            
           
-            <div class="members-list">
-              <div class="members-title">
+           
+          
+          
+          <div class="members-list">
+            <div class="members-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                   <circle cx="9" cy="7" r="4"></circle>
@@ -24,8 +29,8 @@
                   <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
                 <h3>Group Members</h3>
-            </div>
-                <div class="member">
+              </div>
+              <div class="member">
                   <div class="member-avatar">A</div>
                   <span class="member-name">Alice</span>
                 </div>
@@ -38,20 +43,20 @@
                   <span class="member-name">Charlie</span>
                 </div>
               </div>
-              <button class="secondary-btn" id="chatLogoutBtn">
+              <!-- <button class="secondary-btn" id="chatLogoutBtn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                   <polyline points="16 17 21 12 16 7"></polyline>
                   <line x1="21" y1="12" x2="9" y2="12"></line>
                 </svg>
                 <span>Logout</span>
-              </button>
+              </button> -->
             </div>
             <div class="chat-container">
                 <div class="chat-header">
                   <div class="chat-title">
                     <span class="hash">#</span>
-                    <h3>General Chat</h3>
+                    <h3 id="chatGroup-name-header">General Chat</h3>
                   </div>
                   
                   <button class="text-btn" id="leaveGroupBtn">Leave Group</button>
@@ -61,11 +66,11 @@
                   <div class="message-group">
                     <div class="day-divider">Today</div>
                     
-                    <div class="message">
+                    <!-- <div class="message">
                       <div class="message-avatar">A</div>
                       <div class="message-content">
                         <div class="message-header">
-                          <span class="message-author">Alice</span>
+                          
                           <span class="message-time">10:15 AM</span>
                         </div>
                         <p class="message-text">Hello everyone! Welcome to the group chat.</p>
@@ -123,7 +128,7 @@
                         </div>
                         <p class="message-text">That sounds great! I'd love to see it sometime.</p>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
                 
@@ -141,9 +146,10 @@
                   </form>
                 </div>
               </div>
-        </div>
-    </div>
+            </div>
+          </div>
     
-  <script src="script.js"></script>
-</body>
+          <script type="module" src="script.js"></script>
+          <script type="module" src="./firebase/chatting.js"></script>
+  </body>
 </html>
