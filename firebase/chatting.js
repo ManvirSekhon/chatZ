@@ -4,6 +4,7 @@ import { db } from "./firebase.js";
 
 
 const socket = io('http://localhost:8000');
+let lastMessageDate = null;
 
 
 
@@ -20,6 +21,28 @@ const messageInput = document.getElementById('messageInput');
 // const messageList = document.getElementById('messages-container');
 const messageBtn = document.getElementById("sendMessageBtn");
 const userName = localStorage.getItem("username");
+
+
+function insertDayDivider(date) {
+  const messageGroup = document.querySelector('.message-group');
+  
+  const divider = document.createElement('div');
+  divider.classList.add('day-divider');
+
+  const today = new Date();
+  const yesterday = new Date();
+  yesterday.setDate(today.getDate() - 1);
+
+  if (date.toDateString() === today.toDateString()) {
+    divider.textContent = "Today";
+  } else if (date.toDateString() === yesterday.toDateString()) {
+    divider.textContent = "Yesterday";
+  } else {
+    divider.textContent = date.toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' });
+  }
+
+  messageGroup.appendChild(divider);
+}
 
 
 socket.on("connect", () => {
@@ -41,6 +64,13 @@ socket.on('user-joined', userName => {
   updateMemberList(userName)
   const messagesContainer = document.querySelector('.messages-container');
   const messageGroup = document.querySelector('.message-group');
+
+  const messageDate = new Date();
+  if (!lastMessageDate || lastMessageDate.toDateString() !== messageDate.toDateString()) {
+    insertDayDivider(messageDate);
+    lastMessageDate = messageDate;
+  }
+
   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   
   const messageDiv = document.createElement('div');
@@ -71,6 +101,14 @@ messageBtn.addEventListener("click", (e) => {
     if (!messageInput.value.trim()) return;
     const messagesContainer = document.querySelector('.messages-container');
     const messageGroup = document.querySelector('.message-group');
+
+    const messageDate = new Date();
+    if (!lastMessageDate || lastMessageDate.toDateString() !== messageDate.toDateString()) {
+      insertDayDivider(messageDate);
+      lastMessageDate = messageDate;
+    }
+  
+
     const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     
     const messageDiv = document.createElement('div');
@@ -98,6 +136,13 @@ socket.on('receive', (data) => {
     const message = data.message;
     const messagesContainer = document.querySelector('.messages-container');
     const messageGroup = document.querySelector('.message-group');
+
+    const messageDate = new Date();
+    if (!lastMessageDate || lastMessageDate.toDateString() !== messageDate.toDateString()) {
+      insertDayDivider(messageDate);
+      lastMessageDate = messageDate;
+    }
+
     const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     
     const messageDiv = document.createElement('div');
@@ -141,6 +186,13 @@ function removeMemberFromList(userName) {
 socket.on("leaving", (user) => {
   const messagesContainer = document.querySelector('.messages-container');
   const messageGroup = document.querySelector('.message-group');
+
+  const messageDate = new Date();
+  if (!lastMessageDate || lastMessageDate.toDateString() !== messageDate.toDateString()) {
+    insertDayDivider(messageDate);
+    lastMessageDate = messageDate;
+  }
+
   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   
   const messageDiv = document.createElement('div');

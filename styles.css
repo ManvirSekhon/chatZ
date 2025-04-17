@@ -836,3 +836,26 @@
   .join-left{
     justify-content: center;
   }
+
+  .day-divider {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+    margin: 20px 0;
+    position: relative;
+  }
+  .day-divider::before, .day-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #ccc;
+  }
+  .day-divider::before {
+    left: 0;
+  }
+  .day-divider::after {
+    right: 0;
+  }
+  
