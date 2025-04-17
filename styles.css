@@ -17,7 +17,6 @@
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     --transition: all 0.3s ease;
   }
-  
   /* Reset and global styles */
   * {
     margin: 0;
@@ -34,7 +33,6 @@
     flex-direction: column;
     overflow-x: hidden;
   }
-  
   /* Glassmorphism */
   .glass-card {
     background: rgba(255, 255, 255, 0.8);

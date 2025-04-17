@@ -183,3 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const app = initChatApp();
   app.init();
 });
+
+
+// preloader
+var loader = document.getEIementById ( "preLoader" ) ;
+document.addEventListener("DOMContentLoaded ",function(){
+  loader.style.display = "none";
+})
