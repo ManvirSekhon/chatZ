@@ -81,9 +81,9 @@ const initChatApp = () => {
     if (openSidebarBtn) openSidebarBtn.addEventListener('click', () => sidebar.style.transform = 'translateX(0)');
     if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', () => sidebar.style.transform = 'translateX(-100%)');
 
-    if (messageForm) {
-      messageForm.addEventListener('submit', handleMessageSubmit);
-    }
+    // if (messageForm) {
+    //   messageForm.addEventListener('submit', handleMessageSubmit);
+    // }
 
     // UI Effects
     initButtonEffects();
@@ -99,30 +99,30 @@ const initChatApp = () => {
     animateElement(form, 'fadeSlideUp 0.5s ease forwards');
   };
 
-  const handleMessageSubmit = (e) => {
-    e.preventDefault();
-    if (!messageInput.value.trim()) return;
+  // const handleMessageSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (!messageInput.value.trim()) return;
     
-    const messagesContainer = document.querySelector('.messages-container');
-    const messageGroup = document.querySelector('.message-group');
-    const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  //   const messagesContainer = document.querySelector('.messages-container');
+  //   const messageGroup = document.querySelector('.message-group');
+  //   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     
-    const messageDiv = document.createElement('div');
-    messageDiv.classList.add('message', 'own-message');
-    messageDiv.innerHTML = `
-      <div class="message-content">
-        <div class="message-header">
-          <span class="message-time">${currentTime}</span>
-        </div>
-        <p class="message-text">${messageInput.value}</p>
-      </div>
-    `;
+  //   const messageDiv = document.createElement('div');
+  //   messageDiv.classList.add('message', 'own-message');
+  //   messageDiv.innerHTML = `
+  //     <div class="message-content">
+  //       <div class="message-header">
+  //         <span class="message-time">${currentTime}</span>
+  //       </div>
+  //       <p class="message-text">${messageInput.value}</p>
+  //     </div>
+  //   `;
     
-    messageGroup.appendChild(messageDiv);
-    messageInput.value = '';
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    animateElement(messageDiv, 'fadeSlideUp 0.3s ease forwards');
-  };
+  //   messageGroup.appendChild(messageDiv);
+  //   messageInput.value = '';
+  //   messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  //   animateElement(messageDiv, 'fadeSlideUp 0.3s ease forwards');
+  // };
 
   const initButtonEffects = () => {
     const buttons = document.querySelectorAll('.primary-btn');
