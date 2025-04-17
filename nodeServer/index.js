@@ -16,6 +16,18 @@ io.on('connection', socket => {
         users[socket.id] = userName; 
         chatGroups[socket.id] = groupName;
         socket.join(groupName); // join the group room
+
+        if (!chatGroups[groupName]) {
+            chatGroups[groupName] = [];
+        }
+        chatGroups[groupName].push({ id: socket.id, name: userName });
+    
+        console.log(`${userName} joined group: ${groupName}`);
+    
+        // Send the current list of members to the newly joined user
+        const memberNames = chatGroups[groupName].map(user => user.name);
+        socket.emit("current-members", memberNames);
+
         console.log(`${userName} joined group: ${groupName}`);
         socket.to(groupName).emit("user-joined", userName);
     })
@@ -25,7 +37,13 @@ io.on('connection', socket => {
     })
 
     socket.on("disconnect", () => {
-        console.log(`${users[socket.id]} has left`);
+        const groupName = chatGroups[socket.id];
+        const userName = users[socket.id];
+        console.log(`${userName} has left`);
+
+        if (chatGroups[groupName]) {
+            chatGroups[groupName] = chatGroups[groupName].filter(user => user.id !== socket.id);
+        }
         socket.to(chatGroups[socket.id]).emit("leaving", users[socket.id])
         delete users[socket.id];
     })

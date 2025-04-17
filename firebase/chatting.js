@@ -35,13 +35,16 @@ const animateElement = (element, animation) => {
   element.style.animation = animation;
 };
 
+
+
 socket.on('user-joined', userName => {
+  updateMemberList(userName)
   const messagesContainer = document.querySelector('.messages-container');
   const messageGroup = document.querySelector('.message-group');
   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   
   const messageDiv = document.createElement('div');
-  messageDiv.classList.add('message', 'own-message');
+  messageDiv.classList.add('message', 'join-left');
   messageDiv.innerHTML = `
     <div class="message-content">
       <div class="message-header">
@@ -56,6 +59,11 @@ socket.on('user-joined', userName => {
   animateElement(messageDiv, 'fadeSlideUp 0.3s ease forwards');
 })
 
+socket.on("current-members", (members) => {
+  members.forEach(name => {
+    updateMemberList(name);
+  });
+});
 
 
 messageBtn.addEventListener("click", (e) => {
@@ -95,7 +103,7 @@ socket.on('receive', (data) => {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message');
     messageDiv.innerHTML = `
-      <div class="message-avatar">${userName.trim().charAt(0)}</div>
+      <div class="message-avatar">${userName.trim().charAt(0).toUpperCase()}</div>
       <div class="message-content">
         <div class="message-header">
           <span class="message-author">${userName}</span>
@@ -110,15 +118,34 @@ socket.on('receive', (data) => {
     animateElement(messageDiv, 'fadeSlideUp 0.3s ease forwards');
 })
 
+function updateMemberList(userName){
+  const member = document.createElement("div");
+  member.classList.add("member");
+  member.innerHTML = `
+    <div class="member-avatar">${userName.trim().charAt(0).toUpperCase()}</div>
+    <span class="member-name">${userName.trim()}</span>
+  `;
+  document.querySelector(".members-list").appendChild(member);
+}
+
+function removeMemberFromList(userName) {
+  const members = document.querySelectorAll(".member");
+  members.forEach(member => {
+    const name = member.querySelector(".member-name").textContent.trim();
+    if (name === userName.trim()) {
+      member.remove();
+    }
+  });
+}
+
 socket.on("leaving", (user) => {
   const messagesContainer = document.querySelector('.messages-container');
   const messageGroup = document.querySelector('.message-group');
   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   
   const messageDiv = document.createElement('div');
-  messageDiv.classList.add('message');
+  messageDiv.classList.add('message', 'join-left');
   messageDiv.innerHTML = `
-    <div class="message-avatar">${user.trim().charAt(0)}</div>
     <div class="message-content">
       <div class="message-header">
         <span class="message-time">${currentTime}</span>
@@ -130,6 +157,7 @@ socket.on("leaving", (user) => {
   messageGroup.appendChild(messageDiv);
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
   animateElement(messageDiv, 'fadeSlideUp 0.3s ease forwards');
+  removeMemberFromList(user);
 })
 
 window.addEventListener("beforeunload", () => {
