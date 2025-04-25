@@ -669,6 +669,32 @@
     height: 20px;
   }
   
+  /* File Share */
+  .hidden {
+    display: none;
+  }
+  
+  .file-upload-label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: rgb(0, 0, 0);
+    border: none;
+    transition: var(--transition);
+  }
+  
+  .file-upload-label:hover {
+    
+    background-color: none;
+    transform: scale(1.5);
+  }
+  
   /* Decorative elements */
   .decoration-circle {
     position: absolute;
