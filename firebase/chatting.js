@@ -9,6 +9,7 @@ let lastMessageDate = null;
 
 
 const groupName = sessionStorage.getItem("groupName");
+document.title = groupName;
 if (!groupName) {
   window.location.href = "../groups.html";
 } else {

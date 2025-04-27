@@ -8,6 +8,8 @@ import {auth} from "./firebase.js";
 import { doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 import { db } from "./firebase.js";
 
+ //preLoader
+ const load = document.getElementById('preLoader');
 
 // Main logic
 
@@ -27,12 +29,14 @@ else {
     document.getElementById('createGroupSubmitBtn')
     .addEventListener('click', (e) => {
         createGroup();
+        load.style.display = "block";
     })
 
 
     document.getElementById('joinGroupSubmitBtn')
     .addEventListener('click', (e) => {
         joinGroup();
+        load.style.display = "block";
     })
 
 
@@ -61,6 +65,7 @@ else {
 
     if (groupSnap.exists()) {
         alert("Group name already exists. Please choose another.");
+        load.style.display = "none";
         return;
     }
 
@@ -93,6 +98,10 @@ else {
                 sessionStorage.setItem("action", "join");
                 window.location.href = "chatting.html";
             }
+        }
+        else{
+            alert("invalid Groupname or passowrd");
+            load.style.display = "none"  ;  
         }
     }
 
