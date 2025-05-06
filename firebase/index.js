@@ -9,6 +9,8 @@ import { db } from "./firebase.js";
 
 import {auth} from "./firebase.js";
 
+    //preLoader
+    const load = document.getElementById('preLoader');
 
 // Main logic
 
@@ -19,9 +21,10 @@ else {
     document.getElementById("loginBtn").addEventListener("click", (e) => {
         e.preventDefault();
         login();
+        load.style.display= "block";
     })
     
-    
+
     // functions 
     
     function login() {
@@ -51,6 +54,8 @@ else {
             }
             window.location.href = "groups.html";
         })
-        .catch((error) => {alert(error.message)});
+        .catch((error) => {alert(error.message)
+            load.style.display = "none";
+        });    
     }
 }

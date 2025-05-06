@@ -16,6 +16,8 @@ import {
 
 import {db} from "./firebase.js";
 
+ //preLoader
+ const load = document.getElementById('preLoader');
 
 
 // Main logic
@@ -28,6 +30,7 @@ else{
     document.getElementById("registerBtn").addEventListener("click", (e) => {
         e.preventDefault();
         signup();
+        load.style.display= "block";
     })
     
     function signup(){
@@ -49,7 +52,9 @@ else{
         .then( () => {
             window.location.href = "groups.html";
         })
-        .catch( (e) => {alert(e.message)});
+        .catch( (e) => {alert(e.message)
+            load.style.display = "none"
+        });
     }
 }
 

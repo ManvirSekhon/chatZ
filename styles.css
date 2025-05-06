@@ -33,6 +33,18 @@
     flex-direction: column;
     overflow-x: hidden;
   }
+
+  /*preLoader*/
+  #preLoader{
+    height: 100%;
+    width: 100%;
+    background: #ffffff url(./Assets/output-onlinegiftools.gif) no-repeat center center;
+    position: fixed;
+    background-size: 20rem;
+    z-index: 10000;
+    display: none;
+
+  }
   /* Glassmorphism */
   .glass-card {
     background: rgba(255, 255, 255, 0.8);
@@ -667,6 +679,32 @@
   .send-btn svg {
     width: 20px;
     height: 20px;
+  }
+  
+  /* File Share */
+  .hidden {
+    display: none;
+  }
+  
+  .file-upload-label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: rgb(0, 0, 0);
+    border: none;
+    transition: var(--transition);
+  }
+  
+  .file-upload-label:hover {
+    
+    background-color: none;
+    transform: scale(1.5);
   }
   
   /* Decorative elements */
