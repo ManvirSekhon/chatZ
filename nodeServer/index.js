@@ -1,11 +1,11 @@
 const { Server } = require("socket.io");
 
-const io = new Server(8000, {
-    cors: {
-        origin: "http://127.0.0.1:5500", // <-- Allow this origin
-        methods: ["GET", "POST"]
-    }
-});
+const io = new Server(8000, //{
+    // cors: {
+    //     origin: "http://127.0.0.1:5500", // <-- Allow this origin
+    //     methods: ["GET", "POST"]
+    // }}
+);
 
 const users = {};
 const chatGroups = {};
