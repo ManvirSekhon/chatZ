@@ -1,19 +1,15 @@
 // Optimized and cleaned version of script.js
 const initChatApp = () => {
   // DOM Elements
-  // const loginBtn = document.getElementById('loginBtn');
-  // const registerBtn = document.getElementById('registerBtn');
   const createGroupBtn = document.getElementById('createGroupBtn');
   const joinGroupBtn = document.getElementById('joinGroupBtn');
   const createGroupSubmitBtn = document.getElementById('createGroupSubmitBtn');
   const joinGroupSubmitBtn = document.getElementById('joinGroupSubmitBtn');
-  // const groupsLogoutBtn = document.getElementById('groupsLogoutBtn');
-  // const chatLogoutBtn = document.getElementById('chatLogoutBtn');
   const leaveGroupBtn = document.getElementById('leaveGroupBtn');
-
-  const openSidebarBtn = document.getElementById('openSidebar');
-  const closeSidebarBtn = document.getElementById('closeSidebar');
+  const hamburgerMenu = document.getElementById('hamburgerMenu');
+  const closeDrawer = document.getElementById('closeDrawer');
   const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
 
   const groupsOptions = document.getElementById('groupsOptions');
   const createGroupForm = document.getElementById('createGroupForm');
@@ -27,6 +23,9 @@ const initChatApp = () => {
   const messageForm = document.querySelector('.message-form');
   const messageInput = document.getElementById('messageInput');
 
+  // Drawer state
+  let isDrawerOpen = false;
+
   // Animation utility
   const animateElement = (element, animation) => {
     element.style.animation = 'none';
@@ -34,8 +33,35 @@ const initChatApp = () => {
     element.style.animation = animation;
   };
 
+  // Drawer functionality
+  const toggleDrawer = (open) => {
+    isDrawerOpen = open;
+    sidebar.classList.toggle('active', open);
+    overlay.classList.toggle('active', open);
+    hamburgerMenu.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
   // Initialize all event listeners
   const initEventListeners = () => {
+    // Drawer controls
+    if (hamburgerMenu) {
+      hamburgerMenu.addEventListener('click', () => toggleDrawer(true));
+    }
+    if (closeDrawer) {
+      closeDrawer.addEventListener('click', () => toggleDrawer(false));
+    }
+    if (overlay) {
+      overlay.addEventListener('click', () => toggleDrawer(false));
+    }
+
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isDrawerOpen) {
+        toggleDrawer(false);
+      }
+    });
+
     // Tab functionality
     if (tabBtns.length) {
       tabBtns.forEach((btn, index) => {
@@ -50,13 +76,14 @@ const initChatApp = () => {
       });
     }
 
-    // // Navigation handlers
-    // if (registerBtn) registerBtn.addEventListener('click', () => navigateTo('groups.html'));
-    // if (createGroupSubmitBtn) createGroupSubmitBtn.addEventListener('click', () => navigateTo('chatting.html'));
-    // if (joinGroupSubmitBtn) joinGroupSubmitBtn.addEventListener('click', () => navigateTo('chatting.html'));
-    // if (groupsLogoutBtn) groupsLogoutBtn.addEventListener('click', () => navigateTo('auth.html'));
-    // if (chatLogoutBtn) chatLogoutBtn.addEventListener('click', () => navigateTo('auth.html'));
-    if (leaveGroupBtn) leaveGroupBtn.addEventListener('click', () => navigateTo('groups.html'));
+    if (leaveGroupBtn) {
+      leaveGroupBtn.addEventListener('click', () => {
+        if (isDrawerOpen) {
+          toggleDrawer(false);
+        }
+        navigateTo('groups.html');
+      });
+    }
 
     // Group page form toggling
     if (createGroupBtn) {
@@ -77,14 +104,6 @@ const initChatApp = () => {
       });
     }
 
-    // Chat functionality
-    if (openSidebarBtn) openSidebarBtn.addEventListener('click', () => sidebar.style.transform = 'translateX(0)');
-    if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', () => sidebar.style.transform = 'translateX(-100%)');
-
-    // if (messageForm) {
-    //   messageForm.addEventListener('submit', handleMessageSubmit);
-    // }
-
     // UI Effects
     initButtonEffects();
     initInputEffects();
@@ -98,31 +117,6 @@ const initChatApp = () => {
     form.classList.remove('hidden');
     animateElement(form, 'fadeSlideUp 0.5s ease forwards');
   };
-
-  // const handleMessageSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (!messageInput.value.trim()) return;
-    
-  //   const messagesContainer = document.querySelector('.messages-container');
-  //   const messageGroup = document.querySelector('.message-group');
-  //   const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    
-  //   const messageDiv = document.createElement('div');
-  //   messageDiv.classList.add('message', 'own-message');
-  //   messageDiv.innerHTML = `
-  //     <div class="message-content">
-  //       <div class="message-header">
-  //         <span class="message-time">${currentTime}</span>
-  //       </div>
-  //       <p class="message-text">${messageInput.value}</p>
-  //     </div>
-  //   `;
-    
-  //   messageGroup.appendChild(messageDiv);
-  //   messageInput.value = '';
-  //   messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  //   animateElement(messageDiv, 'fadeSlideUp 0.3s ease forwards');
-  // };
 
   const initButtonEffects = () => {
     const buttons = document.querySelectorAll('.primary-btn');
@@ -159,8 +153,8 @@ const initChatApp = () => {
 
   // Mobile responsive adjustments
   const handleResize = () => {
-    if (sidebar) {
-      sidebar.style.transform = window.innerWidth <= 768 ? 'translateX(-100%)' : '';
+    if (window.innerWidth > 768 && isDrawerOpen) {
+      toggleDrawer(false);
     }
   };
 
@@ -184,9 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
   app.init();
 });
 
-
-// preloader
-var loader = document.getEIementById ( "preLoader" ) ;
-document.addEventListener("DOMContentLoaded ",function(){
+// Preloader
+var loader = document.getElementById("preLoader");
+document.addEventListener("DOMContentLoaded", function() {
   loader.style.display = "none";
-})
+});
