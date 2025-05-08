@@ -1,43 +1,11 @@
-const express = require('express');
-const { createServer } = require('http');
-const { Server } = require('socket.io');
-const fs = require('fs');
-const path = require('path');
+const { Server } = require("socket.io");
 
-const app = express();
-const server = createServer(app);
-
-// Enable CORS for Express
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
-    res.header('Access-Control-Allow-Methods', 'GET, POST');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-});
-
-const io = new Server(server, {
+const io = new Server(8000, {
     cors: {
-        origin: "http://127.0.0.1:5500",
-        methods: ["GET", "POST"],
-        credentials: true
-    },
-    transports: ['websocket', 'polling'],
-    allowEIO3: true,
-    pingTimeout: 120000,
-    pingInterval: 25000,
-    maxHttpBufferSize: 10e6, // 10MB
-    connectTimeout: 60000,
-    upgradeTimeout: 60000
+        origin: "http://127.0.0.1:5500", // <-- Allow this origin
+        methods: ["GET", "POST"]
+    }
 });
-
-// Create uploads directory if it doesn't exist
-const uploadsDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadsDir)) {
-    fs.mkdirSync(uploadsDir, { recursive: true });
-}
-
-// Serve static files from uploads directory
-app.use('/uploads', express.static(uploadsDir));
 
 const users = {};
 const groups = {};
