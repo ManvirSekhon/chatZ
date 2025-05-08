@@ -1,6 +1,10 @@
+const express = require('express');
 const { Server } = require("socket.io");
+const app = express();
+const http = require('http');
 
-const io = new Server(8000, {
+const server = http.createServer(app);
+const io = new Server(server, {
     cors: {
         origin: "http://127.0.0.1:5500", // <-- Allow this origin
         methods: ["GET", "POST"]
@@ -29,6 +33,12 @@ const updateProgress = (uploadId, progress) => {
 // Basic route to test if server is running
 app.get('/', (req, res) => {
     res.send('Server is running');
+});
+
+// Start the server
+const PORT = 8000;
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
 
 io.on('connection', socket => {
@@ -325,9 +335,4 @@ process.on('uncaughtException', (err) => {
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (reason, promise) => {
     console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-});
-
-const PORT = process.env.PORT || 8000;
-server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
 });
