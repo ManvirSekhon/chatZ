@@ -524,6 +524,23 @@
     font-weight: 600;
   }
   
+  .user-name {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+    border-left: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .user-name svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--text-light);
+  }
+  
   .messages-container {
     flex: 1;
     padding: 1rem;
