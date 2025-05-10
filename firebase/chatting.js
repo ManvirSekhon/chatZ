@@ -231,7 +231,7 @@ fileInput.addEventListener('change', async (e) => {
     try {
         // Validate file size
         if (file.size > MAX_FILE_SIZE) {
-            alert('File size exceeds 5MB limit');
+            showNotification("File size exceeds 5MB limit");
             fileInput.value = '';
             return;
         }
@@ -316,7 +316,7 @@ fileInput.addEventListener('change', async (e) => {
         readNextChunk();
     } catch (error) {
         console.error('Error handling file:', error);
-        alert('Error uploading file: ' + error.message);
+        showNotification('Error uploading file: ' + error.message);
         fileInput.value = '';
     }
 });
@@ -380,8 +380,37 @@ socket.on('file-chunk', ({ fileId, chunkIndex, totalChunks, fileName, fileType, 
 // Handle file errors
 socket.on('file-error', ({ error }) => {
     console.error('File transfer error:', error);
-    alert('File transfer error: ' + error);
+    showNotification('File transfer error: ' + error);
 });
+
+// Helper function for notifications
+function showNotification(message, type = 'error') {
+    const container = document.getElementById('notificationContainer');
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    
+    const icon = type === 'error' ? 
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="notification-icon"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' :
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="notification-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+
+    notification.innerHTML = `
+        <div class="notification-content">
+            ${icon}
+            <p class="notification-message">${message}</p>
+        </div>
+        <div class="notification-progress"></div>
+    `;
+
+    container.appendChild(notification);
+
+    // Remove notification after 5 seconds
+    setTimeout(() => {
+        notification.classList.add('hide');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 5000);
+}
 
 // Cleanup on disconnect
 socket.on('disconnect', () => {

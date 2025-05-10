@@ -179,7 +179,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Preloader
-var loader = document.getElementById("preLoader");
+const loader = document.getElementById("preLoader");
 document.addEventListener("DOMContentLoaded", function() {
   loader.style.display = "none";
 });
+

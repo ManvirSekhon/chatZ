@@ -13,6 +13,7 @@
 </head>
 <body>
   <div id="preLoader"></div>
+  <div class="notification-container" id="notificationContainer"></div>
   <div class="app-container">
     <div class="page groups-page">
       <header class="page-header">
@@ -75,10 +76,12 @@
               </div>
               
               <div class="input-group">
-                <label>Group Password</label>
-                <input type="password" placeholder="Create a secure password" id="create-pass" required>
+                <label>Group Password (Optional)</label>
+                <input type="password" placeholder="Create a secure password" id="create-pass">
                 <div class="input-focus"></div>
               </div>
+
+              <div class="error-message" id="createGroupError"></div>
               
               <button type="button" class="primary-btn" id="createGroupSubmitBtn">
                 <span>Create Group</span>
@@ -106,10 +109,12 @@
               </div>
               
               <div class="input-group">
-                <label>Group Password</label>
-                <input type="password" placeholder="Enter the group password" id="join-pass" required>
+                <label>Group Password (Optional)</label>
+                <input type="password" placeholder="Enter the group password" id="join-pass">
                 <div class="input-focus"></div>
               </div>
+
+              <div class="error-message" id="joinGroupError"></div>
               
               <button type="button" class="primary-btn" id="joinGroupSubmitBtn">
                 <span>Join Group</span>
