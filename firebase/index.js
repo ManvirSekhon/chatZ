@@ -1,7 +1,8 @@
 // auth
 
 import {
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
@@ -21,6 +22,12 @@ else {
     document.getElementById("loginBtn").addEventListener("click", (e) => {
         e.preventDefault();
         login();
+    });
+
+    // Add event listener for forgot password link
+    document.getElementById("forgotPasswordLink").addEventListener("click", (e) => {
+        e.preventDefault();
+        handleForgotPassword();
     });
 
     // functions 
@@ -125,5 +132,53 @@ else {
             load.style.display = "none";
             document.body.style.overflow = "";
         });    
+    }
+
+    function handleForgotPassword() {
+        const email = document.getElementById("email").value.trim();
+        
+        if (!email) {
+            showNotification("Please enter your email address");
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            showNotification("Please enter a valid email address");
+            return;
+        }
+
+        // Show preloader
+        load.style.display = "block";
+        document.body.style.overflow = "hidden";
+
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                showNotification("Password reset email sent! Please check your inbox.", "success");
+            })
+            .catch((error) => {
+                console.error("Password reset error:", error);
+                let errorMessage = "An error occurred while sending the reset email. Please try again.";
+                
+                switch (error.code) {
+                    case 'auth/invalid-email':
+                        errorMessage = "Please enter a valid email address.";
+                        break;
+                    case 'auth/user-not-found':
+                        errorMessage = "No account found with this email address.";
+                        break;
+                    case 'auth/too-many-requests':
+                        errorMessage = "Too many attempts. Please try again later.";
+                        break;
+                    case 'auth/network-request-failed':
+                        errorMessage = "Network error. Please check your internet connection.";
+                        break;
+                }
+                
+                showNotification(errorMessage);
+            })
+            .finally(() => {
+                load.style.display = "none";
+                document.body.style.overflow = "";
+            });
     }
 }

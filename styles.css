@@ -1357,3 +1357,24 @@ body {
     animation: slideOut 0.3s ease forwards;
 }
   
+.forgot-password-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #6366f1;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.forgot-password-link:hover {
+    color: #4f46e5;
+    transform: translateY(-1px);
+}
+
+.forgot-password-link:active {
+    transform: translateY(0);
+}
+  
