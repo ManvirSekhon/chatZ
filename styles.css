@@ -446,6 +446,13 @@ body {
     height: 100%;
 }
 
+.sidebar-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
 .chat-container {
     flex: 1;
     display: flex;
@@ -948,6 +955,36 @@ body {
     .chat-header .hash {
         display: none;
     }
+
+    #leaveGroupBtn {
+        display: none;
+    }
+
+    .mobile-leave-group-btn {
+        display: block !important;
+        z-index: 2;
+    }
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .members-list {
+        flex: 1;
+        overflow-y: auto;
+        margin-bottom: auto;
+    }
+
+    .sidebar-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        min-height: 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1377,4 +1414,21 @@ body {
 .forgot-password-link:active {
     transform: translateY(0);
 }
-  
+
+.mobile-leave-group-btn {
+    display: none;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: auto;
+    transition: var(--transition);
+    position: sticky;
+    bottom: 0;
+}
+
+

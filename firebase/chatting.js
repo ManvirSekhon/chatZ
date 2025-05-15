@@ -190,7 +190,7 @@ function removeMemberFromList(userName) {
   });
 }
 
-socket.on("leaving", (user) => {
+socket.on("user-left", (user) => {
   const messagesContainer = document.querySelector('.messages-container');
   const messageGroup = document.querySelector('.message-group');
 

@@ -66,6 +66,8 @@ const initChatApp = () => {
   const messageForm = document.querySelector('.message-form');
   const messageInput = document.getElementById('messageInput');
 
+  const mobileLeaveGroupBtn = document.getElementById('mobileLeaveGroupBtn');
+
   // Drawer state
   let isDrawerOpen = false;
 
@@ -125,6 +127,13 @@ const initChatApp = () => {
           toggleDrawer(false);
         }
         navigateTo('groups.html');
+      });
+    }
+
+    if (mobileLeaveGroupBtn) {
+      mobileLeaveGroupBtn.addEventListener('click', () => {
+        toggleDrawer(false); // Close the drawer
+        navigateTo('groups.html'); // Navigate to groups page
       });
     }
 
