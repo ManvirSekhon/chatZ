@@ -126,14 +126,14 @@ const initChatApp = () => {
         if (isDrawerOpen) {
           toggleDrawer(false);
         }
-        navigateTo('groups.html');
+        navigateTo('/groups');
       });
     }
 
     if (mobileLeaveGroupBtn) {
       mobileLeaveGroupBtn.addEventListener('click', () => {
         toggleDrawer(false); // Close the drawer
-        navigateTo('groups.html'); // Navigate to groups page
+        navigateTo('/groups'); // Navigate to groups page
       });
     }
 

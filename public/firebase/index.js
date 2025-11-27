@@ -16,7 +16,7 @@ const load = document.getElementById('preLoader');
 // Main logic
 
 if(localStorage.getItem("uid") != null) {
-    window.location.href = "groups.html";
+    window.location.href = "/groups";
 }
 else {
     document.getElementById("loginBtn").addEventListener("click", (e) => {
@@ -71,7 +71,7 @@ else {
             }
             window.showNotification("Login successful! Redirecting...", "success");
             setTimeout(() => {
-                window.location.href = "groups.html";
+                window.location.href = "/groups";
             }, 1000);
         })
         .catch((error) => {

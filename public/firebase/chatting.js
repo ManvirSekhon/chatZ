@@ -2,23 +2,21 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-
 import { db } from "./firebase.js";
 import WebRTCManager from "./webrtc.js";
 
-const socket = io('http://localhost:8000', {
+const socket = io({
     transports: ['websocket', 'polling'],
     reconnection: true,
     reconnectionAttempts: Infinity,
     reconnectionDelay: 1000,
     reconnectionDelayMax: 5000,
     timeout: 60000,
-    autoConnect: true,
-    withCredentials: true,
-    forceNew: true
+    autoConnect: true
 });
 let lastMessageDate = null;
 
 const groupName = sessionStorage.getItem("groupName");
 document.title = groupName;
 if (!groupName) {
-  window.location.href = "../groups.html";
+  window.location.href = "/groups";
 } else {
   document.body.style.display = "block";
 }

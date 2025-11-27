@@ -74,7 +74,7 @@ function register() {
         document.body.style.overflow = "hidden";
         showNotification("Registration successful! Redirecting...", "success");
         setTimeout(() => {
-            window.location.href = "groups.html";
+            window.location.href = "/groups";
         }, 1000);
     })
     .catch((error) => {

@@ -13,7 +13,7 @@ const load = document.getElementById('preLoader');
 // Main logic
 
 if(localStorage.getItem("uid") == null) {
-    window.location.href = "index.html";
+    window.location.href = "/";
 }
 else {
     document.getElementById("groupsLogoutBtn").addEventListener("click", logout);
@@ -48,7 +48,7 @@ else {
                 showNotification("You have been logged out", "success");
                 
                 setTimeout(() => {
-                    window.location.href = "index.html";
+                    window.location.href = "/";
                 }, 1000);
             })
             .catch((error) => {
@@ -133,7 +133,7 @@ else {
             sessionStorage.setItem("groupPassword", password || "");
             sessionStorage.setItem("action", "create");
             setTimeout(() => {
-                window.location.href = "chatting.html";
+                window.location.href = "/chat";
             }, 1000);
         } catch (error) {
             console.error("Error creating group:", error);
@@ -185,7 +185,7 @@ else {
             sessionStorage.setItem("groupPassword", password || "");
             sessionStorage.setItem("action", "join");
             setTimeout(() => {
-                window.location.href = "chatting.html";
+                window.location.href = "/chat";
             }, 1000);
         } catch (error) {
             console.error("Error joining group:", error);
