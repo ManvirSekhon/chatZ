@@ -1,14 +1,21 @@
 const express = require('express');
 const { Server } = require("socket.io");
+const path = require('path');
 const app = express();
 const http = require('http');
 
 const server = http.createServer(app);
+
+// Configure Socket.io with proper CORS for production
 const io = new Server(server, {
     cors: {
-        origin: "http://127.0.0.1:5500", // <-- Allow this origin
-        methods: ["GET", "POST"]
-    }
+        origin: process.env.NODE_ENV === 'production' 
+            ? process.env.CLIENT_URL || '*' 
+            : ["http://127.0.0.1:5500", "http://localhost:5500"],
+        methods: ["GET", "POST"],
+        credentials: true
+    },
+    transports: ['websocket', 'polling']
 });
 
 const users = {};
@@ -30,15 +37,19 @@ const updateProgress = (uploadId, progress) => {
     uploadProgress.set(uploadId, progress);
 };
 
-// Basic route to test if server is running
+// Serve static files from parent directory
+app.use(express.static(path.join(__dirname, '..')));
+
+// Basic route to serve index.html
 app.get('/', (req, res) => {
-    res.send('Server is running');
+    res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
-// Start the server
-const PORT = 8000;
+// Start the server with dynamic port
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
 
 io.on('connection', socket => {
