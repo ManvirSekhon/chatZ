@@ -6,12 +6,15 @@ const http = require('http');
 
 const server = http.createServer(app);
 
+// Serve static files from public directory
+app.use(express.static(path.join(__dirname, '../public')));
+
 // Configure Socket.io with proper CORS for production
 const io = new Server(server, {
     cors: {
         origin: process.env.NODE_ENV === 'production' 
             ? process.env.CLIENT_URL || '*' 
-            : ["http://127.0.0.1:5500", "http://localhost:5500"],
+            : ["http://127.0.0.1:5500", "http://localhost:5500", "http://localhost:3000"],
         methods: ["GET", "POST"],
         credentials: true
     },
@@ -37,12 +40,17 @@ const updateProgress = (uploadId, progress) => {
     uploadProgress.set(uploadId, progress);
 };
 
-// Serve static files from parent directory
-app.use(express.static(path.join(__dirname, '..')));
-
-// Basic route to serve index.html
+// Routes
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'index.html'));
+    res.sendFile(path.join(__dirname, '../public', 'index.html'));
+});
+
+app.get('/chat', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'chatting.html'));
+});
+
+app.get('/groups', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'groups.html'));
 });
 
 // Start the server with dynamic port
